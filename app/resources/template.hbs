@@ -31,14 +31,7 @@
   </div>
   <div class="main-content">
     {{#leaflet-map class="leaflet-container leaflet-container__desktop" lat=map.lat lng=map.lng zoom=map.zoom onMoveend=(action "updateCenter")}}
-      {{#if nightMode}}
-        {{tile-layer url="http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png"}}
-      {{else}}
-        {{tile-layer url="http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png"}}
-      {{/if}}
-
-      {{log (icon iconInfo)}}
-
+        {{tile-layer url="https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png"}}
       {{#each model as |organization|}}
         {{#marker-layer location=organization.location icon=(icon iconUrl="/img/logo2.svg" iconAnchor=iconAnchor popupAnchor=popupAnchor shadowUrl="/img/shadow.svg" shadowAnchor=shadowAnchor shadowSize=shadowSize iconSize=iconSize)}}
           {{#popup-layer}}
